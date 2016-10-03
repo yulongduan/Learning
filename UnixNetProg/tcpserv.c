@@ -22,13 +22,13 @@ int main(int argc, char** argv)
 	servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
 	servaddr.sin_port = htons(SERV_PORT);
 
-	Bind(listenfd, sockaddr *(&servaddr), sizeof(servaddr));
+	Bind(listenfd, (sockaddr *) &servaddr, sizeof(servaddr));
 	Listen(listenfd, LISTENQ);
 
 	while(true) 
 	{
 		clilen = sizeof(cliaddr);
-		connfd = Accept(listenfd, sockaddr *(&cliaddr), &clilen);
+		connfd = Accept(listenfd, (sockaddr *) &cliaddr, &clilen);
 		if( (childpid = Fork()) == 0)
 		{
 			Close(listenfd);
