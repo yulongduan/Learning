@@ -9,6 +9,9 @@ void Bind(int, const struct sockaddr *, socklen_t);
 void Connect(int, const struct sockaddr *, socklen_t);
 void Listen(int, int);
 
+void Socket(int, int, int);
+void str_cli(FILE *, int); //客户端字符串程序
+void str_echo();
 #endif
 
 
